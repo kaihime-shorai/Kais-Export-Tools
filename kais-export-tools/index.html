@@ -61,7 +61,7 @@
   /* ── hero ── */
   .hero {
     text-align: center;
-    padding: 56px 24px 38px;
+    padding: 56px 24px 48px;
     position: relative;
     overflow: hidden;
   }
@@ -95,6 +95,7 @@
 
   /* ── sections ── */
   section { padding: 34px 0; }
+  section.warning-section { padding-top: 0; padding-bottom: 40px; }
   h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700;
@@ -171,7 +172,7 @@
   <p class="edge-note">Using <strong>Edge</strong>? The same button works — Edge will offer to “Allow extensions from other stores”, then installs normally.</p>
 </header>
 
-<section>
+<section class="warning-section">
   <div class="wrap">
     <div class="warning">
       <strong>⚠ A friendly heads-up:</strong> exports can only contain what the platform has loaded in your browser.
@@ -184,11 +185,11 @@
 <section>
   <div class="wrap">
     <h2>What it does</h2>
-    <p class="section-sub">One click in the popup, one file on your computer.</p>
+    <p class="section-sub">Pick a tool in the popup — each export becomes a file on your computer.</p>
     <div class="grid">
       <div class="card">
         <span class="emoji">💬</span>
-        <h3>Export everything</h3>
+        <h3>Export your data</h3>
         <ul>
           <li>Full chat history as a transcript</li>
           <li>Knowledge base tabs</li>
