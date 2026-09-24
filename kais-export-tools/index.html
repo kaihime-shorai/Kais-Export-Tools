@@ -94,8 +94,8 @@
   .hero .edge-note { margin-top: 18px; font-size: .82rem; color: var(--muted); }
 
   /* ── sections ── */
-  section { padding: 34px 0; }
-  section.warning-section { padding-top: 0; padding-bottom: 40px; }
+  section { padding: 22px 0; }
+  section.warning-section { padding-top: 0; padding-bottom: 26px; }
   h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700;
@@ -148,18 +148,19 @@
   .privacy-strip p + p { margin-top: 14px; }
   .privacy-strip .contact-lead { color: #f7f0e3; font-size: .95rem; }
   .privacy-strip .contact-line { line-height: 2; }
-  .privacy-strip a.email {
-    color: #f7f0e3; font-weight: 700;
-    text-decoration: underline; text-underline-offset: 3px;
-    overflow-wrap: anywhere; word-break: break-word;
-  }
-  .privacy-strip a.email:hover { color: #ffffff; }
   .privacy-strip a { color: #f0e6d2; text-decoration: underline; }
+  .privacy-strip .copy-email {
+    font-family: 'DM Mono', monospace; font-size: .88rem; font-weight: 700;
+    background: rgba(247,240,227,0.12); color: #f7f0e3;
+    border: 1px solid rgba(247,240,227,0.35); border-radius: 10px;
+    padding: 10px 22px; cursor: pointer; transition: all .15s ease;
+  }
+  .privacy-strip .copy-email:hover { background: rgba(247,240,227,0.22); transform: translateY(-1px); }
+  .privacy-strip .copy-email.copied { background: rgba(217,228,200,0.25); border-color: #d9e4c8; }
 
-  /* small screens: keep the long email address inside the box */
+  /* small screens: tighten the dark box */
   @media (max-width: 480px) {
     .privacy-strip { padding: 28px 18px; }
-    .privacy-strip a.email { font-size: .75rem; letter-spacing: -0.3px; }
   }
 
   /* install CTA bottom */
@@ -261,7 +262,7 @@
       and I hope it helps you too.</p>
       <p class="contact-lead"><strong>Questions, ideas, or something broken?</strong></p>
       <p class="contact-line">
-        📧 <a class="email" href="mailto:exporter.tools.for.shapes.inc@gmail.com">exporter.tools.for.shapes.inc@gmail.com</a><br>
+        <button class="copy-email" id="copyEmail" type="button">📧 Tap to copy my email address</button><br>
         💬 Message <strong>@shorai</strong> on Shapes.inc<br>
         🚪 Join the shapes.inc help room for the extension: <a href="https://talk.shapes.inc/join/2df43177-b5e0-43af-a10b-4c39bf155390" target="_blank" rel="noopener">here</a>
       </p>
@@ -285,6 +286,30 @@
   <p>Created by Kaihime (@shorai) — Part of the Exporter Tools for Shapes.inc Suite</p>
   <p style="margin-top:6px">Not affiliated with or endorsed by Shapes.inc.</p>
 </footer>
+
+<script>
+document.getElementById('copyEmail').addEventListener('click', async function () {
+  var email = 'exporter.tools.for.shapes.inc@gmail.com';
+  var btn = this;
+  try {
+    await navigator.clipboard.writeText(email);
+  } catch (e) {
+    var ta = document.createElement('textarea');
+    ta.value = email;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  }
+  btn.classList.add('copied');
+  btn.textContent = '✓ Copied — paste it anywhere';
+  setTimeout(function () {
+    btn.classList.remove('copied');
+    btn.textContent = '📧 Tap to copy my email address';
+  }, 2500);
+});
+</script>
 
 </body>
 </html>
