@@ -151,9 +151,16 @@
   .privacy-strip a.email {
     color: #f7f0e3; font-weight: 700;
     text-decoration: underline; text-underline-offset: 3px;
+    overflow-wrap: anywhere; word-break: break-word;
   }
   .privacy-strip a.email:hover { color: #ffffff; }
   .privacy-strip a { color: #f0e6d2; text-decoration: underline; }
+
+  /* small screens: keep the long email address inside the box */
+  @media (max-width: 480px) {
+    .privacy-strip { padding: 28px 18px; }
+    .privacy-strip a.email { font-size: .75rem; letter-spacing: -0.3px; }
+  }
 
   /* install CTA bottom */
   .cta { text-align: center; }
