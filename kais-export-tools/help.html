@@ -227,7 +227,7 @@
 <div class="plat-chooser">
   <span class="pc-label">I'm using it on</span>
   <button class="plat-btn" id="platDesktopBtn" type="button">🖥️ Desktop</button>
-  <button class="plat-btn" id="platMobileBtn" type="button">📱 Mobile (Lemur)</button>
+  <button class="plat-btn" id="platMobileBtn" type="button">📱 Mobile (Vivaldi)</button>
 </div>
 
 <div id="platDesktopContent">
@@ -374,11 +374,11 @@
 </nav>
 
 <div class="about-note" style="margin-bottom:20px;">
-  <p><strong>📱 Mobile — the honest version:</strong> mobile support is built and tested for <strong>Lemur Browser on Android</strong>. <strong>Quetta is not recommended</strong> — the extension displays and behaves weirdly on it. Mobile browsers restrict extensions far more than desktop ones, so everything works, but it won't feel as polished as desktop, and it's only been tested on a very small number of phones. If something looks off on yours, please tell me — see <em>Report an issue</em>.</p>
+  <p><strong>📱 Mobile — the honest version:</strong> mobile support is built and tested for <strong>Vivaldi Browser on Android</strong>. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat input box (their team has said they won't fix it) — fine if you only pop in to export, frustrating if you actually want to chat. <strong>Quetta is not recommended</strong> — the extension displays and behaves weirdly on it. Mobile browsers restrict extensions far more than desktop ones, so everything works, but it won't feel as polished as desktop, and it's only been tested on a very small number of phones. If something looks off on yours, please tell me — see <em>Report an issue</em>.</p>
 </div>
 
 <div class="about-note" style="margin-bottom:20px;">
-  <p><strong>🎨 About the colours:</strong> when Lemur is in <strong>dark mode</strong>, the extension drawer (this menu) will always be dark — Lemur overrides it and there is genuinely no way around that; the ☀️/🌙 toggle can't change the drawer. But that toggle <em>does</em> control the export panels on the page. The reader, viewer, and help pages have their <em>own</em> ☀️/🌙 toggle (top of the page) — they follow Lemur's mode by default and remember their choice separately from the menu. So for the full cream Cozy Cafe everywhere, drawer included: set Lemur to light mode <em>and</em> the toggles to ☀️ light.</p>
+  <p><strong>🎨 About the colours:</strong> everything follows your browser's light/dark mode until you touch a ☀️/🌙 toggle — then it remembers your choice. The extension menu has a toggle in its header that also controls the export panels on the page; the reader, viewer, and this help page share a <em>separate</em> toggle at the top of the page, so you can read in dark while exporting in light, or vice versa. (On Lemur specifically, the menu is forced dark whenever Lemur itself is in dark mode — Lemur overrides it and there is no way around that. One more reason we recommend Vivaldi.)</p>
 </div>
 
 <div class="about-note" style="margin-bottom:36px;">
@@ -388,7 +388,7 @@
 <section id="m-quickstart">
   <h2><span class="num">1</span>Quick start</h2>
   <div class="card">
-    <p>The extension menu opens as a <strong>bottom drawer</strong>. <strong>Drag it up</strong> to see everything in it — some buttons sit below the fold — and <strong>tap outside it</strong> (on the page) to close it. After tapping any export option, look for the ✅ confirmation line in the drawer, then tap outside it: the panel is waiting at the bottom of the page behind it.</p>
+    <p>The extension menu opens as its <strong>own page</strong> — open it from Vivaldi's menu under <strong>Extensions</strong>. Tap any export option there, then <strong>switch back to your Shapes.inc tab</strong>: the export panel is waiting at the bottom of the page. <em>Tip:</em> hiding Vivaldi's navigation bar and tab bar in its settings gives everything much more room and makes it feel like a regular app.</p>
     <table>
       <tr><th>Button</th><th>What it does</th></tr>
       <tr><td>Start Chat Exporter</td><td>Turns on chat capture on the current Shapes.inc tab. A small panel appears at the bottom of the page.</td></tr>
@@ -406,11 +406,11 @@
   <h2><span class="num">2</span>Chat exporter</h2>
   <div class="card">
     <ol class="steps">
-      <li>Open the chat you want to save on <strong>talk.shapes.inc</strong> in Lemur.</li>
+      <li>Open the chat you want to save on <strong>talk.shapes.inc</strong> in Vivaldi.</li>
       <li>Open the extension menu, then tap <strong>Start Chat Exporter</strong>. <strong>The page will refresh itself — that's normal, don't worry.</strong> Refreshing lets the exporter hook in from the very start so it can capture everything, including the most recent messages.</li>
-      <li>The drawer stays open after you tap — <strong>tap outside it</strong> (on the page) to close it. The capture panel appears at the <strong>bottom of the page</strong>, leaving the right edge free so you can still scroll the chat.</li>
+      <li>After you tap, <strong>switch back to the chat tab</strong>. The capture panel appears at the <strong>bottom of the page</strong>, leaving the right edge free so you can still scroll the chat.</li>
       <li><strong>Scroll up</strong> through the chat to load older messages. Each batch that loads is captured automatically — the counter in the panel shows how many messages you have.</li>
-      <li>When you've reached as far back as you want, tap <strong>Download Chat</strong>. You get a plain <code>.txt</code> transcript, oldest first — find it in Lemur's download manager or your phone's file manager (the exact spot varies by phone).</li>
+      <li>When you've reached as far back as you want, tap <strong>Download Chat</strong>. You get a plain <code>.txt</code> transcript, oldest first — find it in Vivaldi's download manager or your phone's file manager (the exact spot varies by phone).</li>
       <li>Tap <strong>Turn Off</strong> (or the ✖) when you're done — capture switches off completely, no reload needed.</li>
     </ol>
   </div>
@@ -419,9 +419,9 @@
 <section id="m-data">
   <h2><span class="num">3</span>Data exporters</h2>
   <div class="card">
-    <p>Each data exporter works the same way: open the relevant page for your shape on Shapes.inc, tap the matching button in the extension menu, tap outside the drawer, and a panel appears at the <strong>bottom of the page</strong> (not the bottom-right corner like on desktop).</p>
+    <p>Each data exporter works the same way: open the relevant page for your shape on Shapes.inc, tap the matching button in the extension menu, switch back to the Shapes.inc tab, and a panel appears at the <strong>bottom of the page</strong> (not the bottom-right corner like on desktop).</p>
     <p>Panels on mobile have a <strong>single zoom button</strong> instead of the desktop A−/A+ pair — zoom in to read the panel, zoom back out to move around the page.</p>
-    <p>If you get a warning that you're on the wrong page, it appears <strong>inside the drawer</strong>, not as a pop-up: open the correct page from the Shapes.inc sidebar in a new tab, then run the export again there.</p>
+    <p>If you get a warning that you're on the wrong page, it appears <strong>inside the extension menu</strong>, not as a pop-up: open the correct page from the Shapes.inc sidebar in a new tab, then run the export again there.</p>
     <p>For exporters with multiple pages or tabs, capture one section, then move to the next and capture again — the panel keeps a running count. When everything is captured, use the panel's download button to save the complete <code>.json</code> file.</p>
     <p><strong>Expand everything before you capture.</strong> An exporter can only grab what the page has actually loaded — if a section is collapsed (folded-away lists, closed ▾ sections, "show more" links), tap to open it first or that content won't be in your export.</p>
     <p>Files are named after your shape (for example <code>kestrel_Knowledge_Complete_Export.json</code>) so exports from different shapes never get mixed up.</p>
@@ -440,7 +440,7 @@
 <section id="m-privacy">
   <h2><span class="num">5</span>Privacy</h2>
   <div class="card">
-    <p><strong>Everything stays on your phone.</strong> Captured chats and exports live only in the page's memory until you download them. Settings are stored in Lemur's local storage. There is no account, no server, no analytics, and nothing you export is ever sent anywhere.</p>
+    <p><strong>Everything stays on your phone.</strong> Captured chats and exports live only in the page's memory until you download them. Settings are stored in your browser's local storage on your own phone. There is no account, no server, no analytics, and nothing you export is ever sent anywhere.</p>
     <p>The extension only runs on <code>shapes.inc</code> and <code>talk.shapes.inc</code>, and only when you tap a button. The reader, viewer, and this help page work fully offline once loaded.</p>
   </div>
 </section>
@@ -450,27 +450,27 @@
   <div class="card">
     <details>
       <summary>Which mobile browser do I need?</summary>
-      <div class="answer"><p><strong>Lemur Browser</strong> on Android — it's what mobile support is built and tested on. Quetta can load the extension but displays and behaves weirdly, so we don't recommend it. Mobile Chrome and Safari can't run extensions like this at all.</p></div>
+      <div class="answer"><p><strong>Vivaldi Browser</strong> on Android — it's what mobile support is built and tested on. Lemur Browser can also run it, but Lemur has a keyboard bug that covers the chat input box (and they've said they won't fix it), so it's only practical if you're popping in purely to export. Quetta can load the extension but displays and behaves weirdly, so we don't recommend it. Mobile Chrome and Safari can't run extensions like this at all.</p></div>
     </details>
     <details>
       <summary>Why do the colours look different on mobile?</summary>
-      <div class="answer"><p>It depends where you look. The <strong>drawer</strong> (the menu that slides up) is controlled by Lemur: in Lemur's dark mode it will always be dark, no matter what — the only way to get the cream drawer is Lemur's light mode. The drawer's ☀️/🌙 toggle controls the <strong>export panels</strong> on the page. The <strong>reader/viewer/help pages</strong> have their own separate ☀️/🌙 toggle at the top of the page, so you can read in dark while exporting in light, or vice versa — each side follows Lemur's mode until you touch its toggle, then remembers your choice. So: cream everywhere = Lemur light mode + both toggles on ☀️.</p></div>
+      <div class="answer"><p>Every part of the extension follows your browser's light/dark mode until you touch a ☀️/🌙 toggle — then it remembers your choice. There are two independent toggles: one in the extension menu (which also sets the export panels on the page), and one at the top of the reader/viewer/help pages. So you can read in dark while exporting in light, or vice versa. (On Lemur, the menu is always dark when Lemur is in dark mode — the browser forces it.)</p></div>
     </details>
     <details>
       <summary>I tapped an export option and nothing happened?</summary>
-      <div class="answer"><p>It probably did — on mobile the menu drawer can't close itself, so the result is behind it. Look for the ✅ line in the drawer, then tap outside the drawer (on the page): the export panel will be waiting at the bottom of the page.</p></div>
+      <div class="answer"><p>It probably did — the menu opens as its own page on mobile, so the result is on your Shapes.inc tab. Switch back to it: the export panel will be waiting at the bottom of the page.</p></div>
     </details>
     <details>
-      <summary>I can't see all the buttons in the menu.</summary>
-      <div class="answer"><p>The drawer opens half-height on some phones. Drag it upward to expand it — everything is there, including the links and notes at the bottom.</p></div>
+      <summary>How do I open the extension menu on mobile?</summary>
+      <div class="answer"><p>In Vivaldi, open the browser's own menu and look under <strong>Extensions</strong> — tap Kai's Export Tools and the menu opens as its own page. Hiding Vivaldi's navigation bar and tab bar in its settings gives everything more room.</p></div>
     </details>
     <details>
       <summary>The chat capture counter says 0 — what's wrong?</summary>
-      <div class="answer"><p>First make sure you've tapped outside the drawer and are looking at the chat page itself — the panel with the counter sits at the bottom of the page. The counter only climbs as message history loads: after the automatic refresh, whatever is currently visible is captured straight away, and scrolling up loads (and captures) older batches.</p><p>If it's still 0 after the refresh <em>and</em> some scrolling, then either the chat room is genuinely empty, or something on the platform's side has changed and the exporter can't read it — please report that (see below) so it can be fixed.</p></div>
+      <div class="answer"><p>First make sure you've switched back to the chat tab and are looking at the chat page itself — the panel with the counter sits at the bottom of the page. The counter only climbs as message history loads: after the automatic refresh, whatever is currently visible is captured straight away, and scrolling up loads (and captures) older batches.</p><p>If it's still 0 after the refresh <em>and</em> some scrolling, then either the chat room is genuinely empty, or something on the platform's side has changed and the exporter can't read it — please report that (see below) so it can be fixed.</p></div>
     </details>
     <details>
       <summary>Where did my export download to?</summary>
-      <div class="answer"><p>Into Lemur's downloads — check Lemur's download manager (in its menu) or your phone's file manager; the exact location varies by phone. From there you can share or move the file, then open it in the Story Reader or Data Viewer.</p></div>
+      <div class="answer"><p>Into Vivaldi's downloads — check Vivaldi's download manager (in its menu) or your phone's file manager; the exact location varies by phone. From there you can share or move the file, then open it in the Story Reader or Data Viewer.</p></div>
     </details>
     <details>
       <summary>Why didn't my export grab everything on the page?</summary>
@@ -499,7 +499,7 @@
       <div class="contact-row">💬 Message <strong>@shorai</strong> on Shapes.inc</div>
       <div class="contact-row">🚪 Join the Shapes.inc help room for the extension: <a href="https://talk.shapes.inc/join/2df43177-b5e0-43af-a10b-4c39bf155390" target="_blank" rel="noopener">here</a></div>
     </div>
-    <p>It helps a lot if you include: which button or page you were using, what you expected, what happened instead, your phone and Lemur version, and — if it's a display problem — a screenshot. Please don't include private export contents unless you're comfortable sharing them.</p>
+    <p>It helps a lot if you include: which button or page you were using, what you expected, what happened instead, your phone and Vivaldi version, and — if it's a display problem — a screenshot. Please don't include private export contents unless you're comfortable sharing them.</p>
   </div>
   <div class="about-note kofi-note">
     <p>☕ <strong>Like the extension?</strong> You can <a href="https://ko-fi.com/shorai" target="_blank" rel="noopener">buy me a coffee on Ko-fi</a> — or just shout it out on Shapes.inc. Support in any amount (or none — a kind word counts just as much) keeps it going 💛</p>
