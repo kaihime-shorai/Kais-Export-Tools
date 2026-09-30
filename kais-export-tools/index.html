@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kai's Export Tools for Shapes.inc — keep what matters, locally</title>
-<meta name="description" content="Export your Shapes.inc chats, knowledge bases, memories, training pairs, and profile config — then read them back in beautiful offline pages. 100% local, no accounts, no tracking.">
+<meta name="description" content="Export your Shapes.inc chats, knowledge bases, memories, training pairs, and profile config — then read them back in beautiful offline pages. Now on desktop and mobile (Vivaldi on Android). 100% local, no accounts, no tracking.">
 
 <!-- ══════════════════════════════════════════════════════════════════
      BEFORE PUBLISHING — fill in these two URLs (search for "EDIT-ME"):
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kai's Export Tools">
 <meta property="og:title" content="Kai's Export Tools for Shapes.inc">
-<meta property="og:description" content="Export chats, knowledge, memories & more — read them back beautifully. 100% local, private by design.">
+<meta property="og:description" content="Export chats, knowledge, memories & more — read them back beautifully. Desktop + mobile (Vivaldi on Android). 100% local, private by design.">
 <meta property="og:url" content="https://kaihime-shorai.github.io/Kais-Export-Tools/kais-export-tools/">
 <meta property="og:image" content="https://kaihime-shorai.github.io/Kais-Export-Tools/kais-export-tools/og-banner.png">
 <meta property="og:image:width" content="1200">
@@ -47,6 +47,18 @@
     --accent-line: rgba(160,113,58,0.22);
     --shadow: rgba(60,40,10,0.1);
   }
+  html[data-scheme="dark"] {
+    --bg: #241a0c;
+    --surface: #2e2318;
+    --line: rgba(242,231,212,0.12);
+    --text: #f2e7d4;
+    --muted: #c2b096;
+    --accent: #d8b070;
+    --accent-hover: #e6c184;
+    --accent-soft: rgba(216,176,112,0.15);
+    --accent-line: rgba(216,176,112,0.3);
+    --shadow: rgba(0,0,0,0.5);
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
@@ -58,10 +70,37 @@
   }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
+  /* ── light/dark toggle ── */
+  #schemeToggle {
+    position: fixed; top: 14px; right: 14px; z-index: 50;
+    font-family: 'DM Mono', monospace; font-size: .75rem; font-weight: 700;
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--accent-line); border-radius: 20px;
+    padding: 8px 14px; cursor: pointer; box-shadow: 0 4px 14px var(--shadow);
+    transition: all .15s ease;
+  }
+  #schemeToggle:hover { color: var(--accent); transform: translateY(-1px); }
+  @media (max-width: 640px) {
+    #schemeToggle { position: absolute; top: 10px; right: 10px; }
+  }
+
+  /* ── screenshot lightbox ── */
+  .shot img { cursor: zoom-in; }
+  .lightbox {
+    position: fixed; inset: 0; z-index: 100; display: none;
+    background: rgba(20,12,4,0.88); padding: 24px;
+    align-items: center; justify-content: center; cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 100%; max-height: 100%; border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  }
+
   /* ── hero ── */
   .hero {
     text-align: center;
-    padding: 56px 24px 48px;
+    padding: 56px 24px 30px;
     position: relative;
     overflow: hidden;
   }
@@ -71,15 +110,16 @@
   }
   .hero::before { width: 480px; height: 480px; background: #e8d3b0; top: -180px; left: -140px; }
   .hero::after  { width: 400px; height: 400px; background: #d9e4c8; bottom: -200px; right: -120px; }
+  html[data-scheme="dark"] .hero::before, html[data-scheme="dark"] .hero::after { display: none; }
   .hero img.icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 16px 40px var(--shadow); }
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.4rem, 6vw, 3.8rem);
     font-weight: 700; line-height: 1.08;
-    margin: 20px 0 6px;
+    margin: 22px 0 10px;
   }
   .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero .tag { color: var(--muted); font-size: 1.05rem; margin-bottom: 26px; }
+  .hero .tag { color: var(--muted); font-size: 1.05rem; margin-bottom: 28px; }
 
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
@@ -89,12 +129,39 @@
   }
   .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 10px 26px rgba(160,113,58,.35); }
   .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+  html[data-scheme="dark"] .btn-primary { color: #241a0c; box-shadow: 0 10px 26px rgba(0,0,0,.5); }
   .btn-ghost { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); }
   .btn-ghost:hover { background: rgba(160,113,58,.15); transform: translateY(-2px); }
-  .hero .edge-note { margin-top: 18px; font-size: .82rem; color: var(--muted); }
+
+  .hero .works-on { margin-top: 18px; font-size: .92rem; color: var(--text); }
+  .hero .works-on strong { color: var(--accent); }
+  .hero .edge-note { margin-top: 10px; font-size: .82rem; color: var(--muted); max-width: 56ch; margin-left: auto; margin-right: auto; }
+  .hero .mobile-note { margin-top: 16px; font-size: .82rem; color: var(--muted); }
+  .hero .mobile-note strong { color: var(--accent); }
+
+  /* ── what's new banner ── */
+  .whatsnew-section { padding-top: 0; padding-bottom: 26px; }
+  .whatsnew {
+    max-width: 760px; margin: 0 auto;
+    background: var(--accent-soft); border: 1px solid var(--accent-line);
+    border-radius: 12px; overflow: hidden;
+  }
+  .whatsnew summary {
+    cursor: pointer; list-style: none; padding: 14px 20px;
+    font-weight: 700; font-size: .88rem; color: var(--accent);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .whatsnew summary::-webkit-details-marker { display: none; }
+  .whatsnew summary .wn-chevron { margin-left: auto; transition: transform .2s ease; font-size: .8rem; }
+  .whatsnew[open] summary .wn-chevron { transform: rotate(180deg); }
+  .whatsnew .wn-body { padding: 2px 22px 18px; font-size: .85rem; color: var(--muted); }
+  .whatsnew .wn-body ul { list-style: none; }
+  .whatsnew .wn-body li { padding: 4px 0 4px 22px; position: relative; }
+  .whatsnew .wn-body li::before { content: '✦'; position: absolute; left: 2px; color: var(--accent); font-size: .75rem; }
+  .whatsnew .wn-body strong { color: var(--text); }
 
   /* ── sections ── */
-  section { padding: 22px 0; }
+  section { padding: 26px 0; }
   section.warning-section { padding-top: 0; padding-bottom: 26px; }
   h2 {
     font-family: 'Cormorant Garamond', serif;
@@ -177,17 +244,38 @@
 </style>
 </head>
 <body>
+<button id="schemeToggle" type="button" aria-label="Toggle light and dark mode" aria-pressed="false">☀️ Light</button>
 
 <header class="hero">
   <img class="icon" src="icon-128.png" alt="Kai's Export Tools icon">
   <h1>Kai's <em>Export Tools</em><br>for Shapes.inc</h1>
-  <p class="tag">Keep what matters from your shapes — safely on your own computer.</p>
+  <p class="tag">Keep what matters from your shapes — safely on your own device.</p>
   <!-- EDIT-ME: replace STORE-URL with your real Chrome Web Store listing link -->
   <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/ccmcoodnehmnkbbompcenkhjalflpjio" target="_blank" rel="noopener">
-    ⬇&nbsp; Add to Chrome — it's free
+    ⬇&nbsp; Install now — it's free
   </a>
-  <p class="edge-note">Using <strong>Edge</strong>? The same button works — Edge will offer to “Allow extensions from other stores”, then installs normally.</p>
+  <p class="works-on">Works on <strong>Chrome</strong>, <strong>Microsoft Edge</strong>, and <strong>Vivaldi Browser</strong> on Android.</p>
+  <p class="edge-note">On <strong>Edge</strong>: say yes when it offers “extensions from other stores”. On <strong>Vivaldi</strong> (Android): open this page on your phone and tap the button above. <a href="#mobile" style="color:var(--accent);">Mobile details ↓</a></p>
+  <p class="mobile-note">Want the details first? <a href="help.html" style="color:var(--accent);">Read the full Help &amp; FAQ</a> before installing — no download needed.</p>
 </header>
+
+<section class="whatsnew-section">
+  <div class="wrap">
+    <details class="whatsnew" id="whats-new">
+      <summary>✨ What's new in v1.3 — now on Android (via Vivaldi Browser) <span class="wn-chevron">▼</span></summary>
+      <div class="wn-body">
+        <ul>
+          <li><strong>Works on your phone:</strong> built and tested for Vivaldi Browser on Android — the menu opens as a touch-friendly page, export panels size themselves for phone screens, and the reader &amp; viewer pages all adapt. <em>(Lemur Browser can run it too, but Lemur has a keyboard bug that covers the chat box — fine for exports, awkward for chatting.)</em></li>
+          <li><strong>Help &amp; FAQ now lives online:</strong> the Help button opens the always-up-to-date help page, so fixes and new answers reach everyone without waiting for a store update.</li>
+          <li><strong>Your look, your choice:</strong> independent ☀️/🌙 Cozy Cafe light/dark toggles — one for the menu &amp; panels, a separate one on the reading pages.</li>
+          <li><strong>Fixed:</strong> knowledge, memory &amp; training exports now preserve line breaks from the page.</li>
+          <li><strong>Search got better:</strong> matches are highlighted word-by-word, the find bar stays pinned while you jump between results, and one tap clears it.</li>
+          <li><strong>Small quality-of-life bits:</strong> dismissible warnings in the mobile menu, version number in the menu, and a readability pass across panels and both reader pages.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
 
 <section class="warning-section">
   <div class="wrap">
@@ -235,20 +323,46 @@
     <p class="section-sub">Cozy café vibes included. ☕</p>
     <div class="shots">
       <figure class="shot">
-        <img src="screenshots/store-4-popup.png" alt="The extension popup with all tools one click away" loading="lazy">
-        <figcaption>The popup — every tool one click away</figcaption>
+        <img src="screenshots/store-4-popup.png" alt="The extension popup in light and dark Cozy Cafe" loading="lazy">
+        <figcaption>The popup — every tool one click away, in light &amp; dark</figcaption>
       </figure>
       <figure class="shot">
-        <img src="screenshots/store-1-reader.png" alt="Story Reader showing a formatted chat transcript" loading="lazy">
-        <figcaption>Story Reader — chats become readable stories</figcaption>
+        <img src="screenshots/store-1-reader.png" alt="Story Reader showing a formatted chat transcript, light and dark themes" loading="lazy">
+        <figcaption>Story Reader — chats become readable stories (light &amp; dark)</figcaption>
       </figure>
       <figure class="shot">
-        <img src="screenshots/store-2-viewer.png" alt="Data Viewer showing a knowledge base export" loading="lazy">
-        <figcaption>Data Viewer — knowledge, memories &amp; more</figcaption>
+        <img src="screenshots/store-2-viewer.png" alt="Data Viewer showing a knowledge base export, light and dark themes" loading="lazy">
+        <figcaption>Data Viewer — knowledge, memories &amp; more (light &amp; dark)</figcaption>
       </figure>
       <figure class="shot">
-        <img src="screenshots/store-3-help.png" alt="Built-in Help and FAQ page" loading="lazy">
-        <figcaption>Built-in Help &amp; FAQ</figcaption>
+        <img src="screenshots/store-3-help.png" alt="Built-in Help and FAQ page, light and dark themes" loading="lazy">
+        <figcaption>Built-in Help &amp; FAQ (light &amp; dark)</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="mobile">
+  <div class="wrap">
+    <h2>Now on your phone 📱</h2>
+    <p class="section-sub">Everything works on Android with <strong>Vivaldi Browser</strong> — install from the same Chrome Web Store page.</p>
+    <div class="warning" style="margin-bottom:26px;">
+      <strong>How to get it on mobile:</strong> open this page in <strong>Vivaldi Browser</strong> on your Android phone, tap the install button above, and Vivaldi will add it like a desktop extension. Then open Shapes.inc, tap Vivaldi's menu, find the extension, and its menu opens as a touch-friendly page. <em>Tip:</em> hiding Vivaldi's navigation bar and tab bar makes it feel just like a regular app — <a href="vivaldi-setup.html" style="color:var(--accent);">here's a 2-minute picture guide</a>.
+      <br><br>
+      <strong>An honest note:</strong> mobile browsers give extensions far less room to work in than desktop, so the mobile experience is simpler — and it is built specifically for Vivaldi. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat box (they've said they won't fix it) — fine if you only pop in to export, frustrating if you actually chat. Quetta is not recommended. If anything looks off on your phone, please tell me — testing devices is limited, so reports genuinely help.
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="screenshots/store-mobile-drawer.png" alt="The extension menu on mobile, in light and dark Cozy Cafe" loading="lazy">
+        <figcaption>The menu on mobile — light &amp; dark Cozy Cafe</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="screenshots/store-mobile-reader.png" alt="Story Reader on a phone in light and dark themes" loading="lazy">
+        <figcaption>Story Reader on a phone — pick your theme</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="screenshots/store-mobile-panels.png" alt="Export panels on a phone screen" loading="lazy">
+        <figcaption>Export panels, sized for touch</figcaption>
       </figure>
     </div>
   </div>
@@ -266,6 +380,7 @@
         💬 Message <strong>@shorai</strong> on Shapes.inc<br>
         🚪 Join the shapes.inc help room for the extension: <a href="https://talk.shapes.inc/join/2df43177-b5e0-43af-a10b-4c39bf155390" target="_blank" rel="noopener">here</a>
       </p>
+      <p class="contact-line">☕ If the extension is helping you, you can <a href="https://ko-fi.com/shorai" target="_blank" rel="noopener">support it on Ko-fi</a> — never required, always appreciated 💛</p>
     </div>
   </div>
 </section>
@@ -273,14 +388,18 @@
 <section class="cta">
   <div class="wrap">
     <h2>Ready when you are</h2>
-    <p class="section-sub">Free forever. Works in Chrome and Edge.</p>
+    <p class="section-sub">Free forever. Works in Chrome and Edge on desktop, and Vivaldi Browser on Android.</p>
     <div class="btn-row">
       <!-- EDIT-ME: replace STORE-URL with your real Chrome Web Store listing link -->
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/ccmcoodnehmnkbbompcenkhjalflpjio" target="_blank" rel="noopener">⬇&nbsp; Add to Chrome</a>
+      <a class="btn btn-ghost" href="help.html">📖&nbsp; Help &amp; FAQ</a>
+      <a class="btn btn-ghost" href="https://ko-fi.com/shorai" target="_blank" rel="noopener">☕&nbsp; Support on Ko-fi</a>
       <a class="btn btn-ghost" href="privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a>
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Screenshot preview"><img id="lightboxImg" alt=""></div>
 
 <footer>
   <p>Created by Kaihime (@shorai) — Part of the Exporter Tools for Shapes.inc Suite</p>
@@ -288,6 +407,52 @@
 </footer>
 
 <script>
+// Light/dark toggle — follows the visitor's system theme until they pick one manually.
+(function(){
+  var KEY = 'ket-site-scheme';
+  var btn = document.getElementById('schemeToggle');
+  var root = document.documentElement;
+  function isDark(){
+    var s = root.getAttribute('data-scheme');
+    if (s === 'light' || s === 'dark') return s === 'dark';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function render(){
+    var d = isDark();
+    btn.textContent = d ? '🌙 Dark' : '☀️ Light';
+    btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+  }
+  try { var saved = localStorage.getItem(KEY); if (saved === 'light' || saved === 'dark') root.setAttribute('data-scheme', saved); } catch(e){}
+  if (!root.getAttribute('data-scheme') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-scheme', 'dark');
+  btn.addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-scheme', next);
+    try { localStorage.setItem(KEY, next); } catch(e){}
+    render();
+  });
+  render();
+})();
+// Screenshot lightbox — click any screenshot to view it full-size, click anywhere to close.
+(function(){
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.shot img').forEach(function(img){
+    img.addEventListener('click', function(){
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || 'Screenshot';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function close(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+// Auto-open the what's-new banner when linked directly (e.g. from the extension menu).
+if (location.hash === '#whats-new') {
+  var wn = document.getElementById('whats-new');
+  if (wn) wn.open = true;
+}
 document.getElementById('copyEmail').addEventListener('click', async function () {
   var email = 'exporter.tools.for.shapes.inc@gmail.com';
   var btn = this;
