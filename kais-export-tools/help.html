@@ -196,15 +196,25 @@
     }
     html[data-cafe-scheme="dark"] .steps li::before{background:#c09a5c;color:#241a0c;}
 
+  /* collapsible blocks */
+  .toc-fold{padding:0;margin-bottom:36px;background:var(--page-surface);}
+  .toc-fold summary{padding:16px 22px;}
+  .toc-fold .toc-links{padding:0 22px 18px;}
+  details.about-note.note-fold{padding:0;}
+  .note-fold summary{padding:16px 22px;font-size:.92em;}
+  .note-fold p{padding:0 22px 18px 48px;}
+
   @media (max-width:640px){
     body{padding:32px 16px 80px;}
     h1{font-size:1.7em;}
     .card{padding:18px;}
     td:first-child{white-space:normal;}
     .floating-bar{right:10px;bottom:10px;}
-    .toc{display:flex;flex-wrap:wrap;gap:8px;}
+    nav.toc{display:flex;flex-wrap:wrap;gap:8px;}
     .toc-title{flex-basis:100%;}
-    .toc a{margin:0;flex:0 0 auto;}
+    nav.toc a{margin:0;}
+    .toc-links{display:flex;flex-wrap:wrap;gap:8px;}
+    .toc-links a{margin:0;}
   }
 </style>
 </head>
@@ -366,20 +376,23 @@
 </div>
 
 <div id="platMobileContent">
-<nav class="toc">
-  <div class="toc-title">Jump to</div>
-  <a href="#m-quickstart">Quick start</a>
-  <a href="#m-chat">Chat exporter</a>
-  <a href="#m-data">Data exporters</a>
-  <a href="#m-reading">Reader &amp; viewer</a>
-  <a href="#m-privacy">Privacy</a>
-  <a href="#m-faq">FAQ</a>
-  <a href="#m-issues">Report an issue</a>
-</nav>
+<details class="toc toc-fold">
+  <summary>Jump to section</summary>
+  <div class="toc-links">
+    <a href="#m-quickstart">Quick start</a>
+    <a href="#m-chat">Chat exporter</a>
+    <a href="#m-data">Data exporters</a>
+    <a href="#m-reading">Reader &amp; viewer</a>
+    <a href="#m-privacy">Privacy</a>
+    <a href="#m-faq">FAQ</a>
+    <a href="#m-issues">Report an issue</a>
+  </div>
+</details>
 
-<div class="about-note" style="margin-bottom:20px;">
-  <p><strong>📱 Mobile — the honest version:</strong> mobile support is built and tested for <strong>Vivaldi Browser on Android</strong>. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat input box (their team has said they won't fix it) — fine if you only pop in to export, frustrating if you actually want to chat. <strong>Quetta is not recommended</strong> — the extension displays and behaves weirdly on it. Mobile browsers restrict extensions far more than desktop ones, so everything works, but it won't feel as polished as desktop, and it's only been tested on a very small number of phones. If something looks off on yours, please tell me — see <em>Report an issue</em>.</p>
-</div>
+<details class="about-note note-fold" style="margin-bottom:20px;">
+  <summary><strong>📱 Mobile — the honest version</strong></summary>
+  <p>Mobile support is built and tested for <strong>Vivaldi Browser on Android</strong>. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat input box (their team has said they won't fix it) — fine if you only pop in to export, frustrating if you actually want to chat. <strong>Quetta is not recommended</strong> — the extension displays and behaves weirdly on it. Mobile browsers restrict extensions far more than desktop ones, so everything works, but it won't feel as polished as desktop, and it's only been tested on a very small number of phones. If something looks off on yours, please tell me — see <em>Report an issue</em>.</p>
+</details>
 
 <div class="about-note" style="margin-bottom:20px; border-left:4px solid var(--page-accent);">
   <p><strong>🆕 New to Vivaldi?</strong> Out of the box it shows extra bars (tab bar, navigation bar) that eat up screen space. Hiding them takes about two minutes and makes it feel like a regular mobile browser — follow the short <a href="vivaldi-setup.html">picture guide</a> and you're set.</p>
