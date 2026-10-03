@@ -204,7 +204,7 @@
     .floating-bar{right:10px;bottom:10px;}
     .toc{display:flex;flex-wrap:wrap;gap:8px;}
     .toc-title{flex-basis:100%;}
-    .toc a{margin:0;flex:1 1 40%;text-align:center;}
+    .toc a{margin:0;flex:0 0 auto;}
   }
 </style>
 </head>
@@ -346,7 +346,7 @@
 
 <section id="issues">
   <h2><span class="num">7</span>Report an issue</h2>
-  <div class="about-note">
+  <div class="about-note" style="margin-bottom:20px;">
     <p><strong>A quick note from Kaihime:</strong> I'm not a professional developer — I'm a Shapes.inc user who built these tools because I wanted to help other shape users keep the chats and data that matter to them. Things may occasionally break when the platform changes; when they do, tell me and I'll do my best to fix them.</p>
   </div>
   <div class="card">
@@ -381,12 +381,12 @@
   <p><strong>📱 Mobile — the honest version:</strong> mobile support is built and tested for <strong>Vivaldi Browser on Android</strong>. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat input box (their team has said they won't fix it) — fine if you only pop in to export, frustrating if you actually want to chat. <strong>Quetta is not recommended</strong> — the extension displays and behaves weirdly on it. Mobile browsers restrict extensions far more than desktop ones, so everything works, but it won't feel as polished as desktop, and it's only been tested on a very small number of phones. If something looks off on yours, please tell me — see <em>Report an issue</em>.</p>
 </div>
 
-<div class="about-note" style="margin-bottom:36px;">
-  <p><strong>⚠️ Before you delete anything on Shapes.inc:</strong> always open your downloaded export and check that everything you expected is actually in it. An export can only contain what the platform has loaded in your browser — if a chat wasn't fully scrolled, or a page wasn't captured, that content won't be in the file. <strong>Verify first, delete second.</strong> If something is missing, re-capture and compare again before removing anything — chats, memories, knowledge tabs, or a shape itself.</p>
+<div class="about-note" style="margin-bottom:20px; border-left:4px solid var(--page-accent);">
+  <p><strong>🆕 New to Vivaldi?</strong> Out of the box it shows extra bars (tab bar, navigation bar) that eat up screen space. Hiding them takes about two minutes and makes it feel like a regular mobile browser — follow the short <a href="vivaldi-setup.html">picture guide</a> and you're set.</p>
 </div>
 
-<div class="about-note" style="margin-bottom:36px; border-left:4px solid var(--page-accent);">
-  <p><strong>🆕 New to Vivaldi?</strong> Out of the box it shows extra bars (tab bar, navigation bar) that eat up screen space. Hiding them takes about two minutes and makes it feel like a regular mobile browser — follow the short <a href="vivaldi-setup.html">picture guide</a> and you're set.</p>
+<div class="about-note" style="margin-bottom:36px;">
+  <p><strong>⚠️ Before you delete anything on Shapes.inc:</strong> always open your downloaded export and check that everything you expected is actually in it. An export can only contain what the platform has loaded in your browser — if a chat wasn't fully scrolled, or a page wasn't captured, that content won't be in the file. <strong>Verify first, delete second.</strong> If something is missing, re-capture and compare again before removing anything — chats, memories, knowledge tabs, or a shape itself.</p>
 </div>
 
 <section id="m-quickstart">
@@ -493,7 +493,7 @@
 
 <section id="m-issues">
   <h2><span class="num">7</span>Report an issue</h2>
-  <div class="about-note">
+  <div class="about-note" style="margin-bottom:20px;">
     <p><strong>A quick note from Kaihime:</strong> I'm not a professional developer — I'm a Shapes.inc user who built these tools because I wanted to help other shape users keep the chats and data that matter to them. Mobile was especially hard: mobile browsers restrict what extensions can do, and I could only test on a very small number of phones — so if something's broken on yours, please tell me and I'll do my best to fix it.</p>
   </div>
   <div class="card">
