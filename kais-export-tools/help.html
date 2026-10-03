@@ -202,7 +202,8 @@
   .toc-fold .toc-links{padding:0 22px 18px;}
   details.about-note.note-fold{padding:0;}
   .note-fold summary{padding:16px 22px;font-size:.92em;}
-  .note-fold p{padding:0 22px 18px 48px;}
+  .note-fold p{padding:0 22px 0 48px;margin-bottom:10px;}
+  .note-fold p:last-child{padding-bottom:18px;margin-bottom:0;}
 
   @media (max-width:640px){
     body{padding:32px 16px 80px;}
@@ -215,6 +216,9 @@
     nav.toc a{margin:0;}
     .toc-links{display:flex;flex-wrap:wrap;gap:8px;}
     .toc-links a{margin:0;}
+    .rule{margin:22px 0 24px;}
+    .plat-chooser{margin-bottom:20px;}
+    .toc-fold{margin-bottom:12px;}
   }
 </style>
 </head>
@@ -252,7 +256,7 @@
   <a href="#issues">Report an issue</a>
 </nav>
 
-<div class="about-note" style="margin-bottom:36px;">
+<div class="about-note" style="margin-bottom:24px;">
   <p><strong>⚠️ Before you delete anything on Shapes.inc:</strong> always open your downloaded export and check that everything you expected is actually in it. An export can only contain what the platform has loaded in your browser — if a chat wasn't fully scrolled, or a page wasn't captured, that content won't be in the file. <strong>Verify first, delete second.</strong> If something is missing, re-capture and compare again before removing anything — chats, memories, knowledge tabs, or a shape itself.</p>
 </div>
 
@@ -389,16 +393,19 @@
   </div>
 </details>
 
-<details class="about-note note-fold" style="margin-bottom:20px;">
+<details class="about-note note-fold" style="margin-bottom:12px;">
   <summary><strong>📱 Mobile — the honest version</strong></summary>
-  <p>Mobile support is built and tested for <strong>Vivaldi Browser on Android</strong>. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat input box (their team has said they won't fix it) — fine if you only pop in to export, frustrating if you actually want to chat. <strong>Quetta is not recommended</strong> — the extension displays and behaves weirdly on it. Mobile browsers restrict extensions far more than desktop ones, so everything works, but it won't feel as polished as desktop, and it's only been tested on a very small number of phones. If something looks off on yours, please tell me — see <em>Report an issue</em>.</p>
+  <p>Built and tested for <strong>Vivaldi Browser on Android</strong>.</p>
+  <p><strong>Lemur</strong> can also run it, but its keyboard covers the chat input box (their team won't fix it) — fine for popping in to export, frustrating for actually chatting.</p>
+  <p><strong>Quetta</strong> loads it but displays and behaves weirdly — not recommended.</p>
+  <p>Everything works, but mobile browsers give extensions far less room than desktop, so it won't feel as polished — and it's only been tested on a small number of phones. If something looks off on yours, please tell me (see <em>Report an issue</em>).</p>
 </details>
 
-<div class="about-note" style="margin-bottom:20px; border-left:4px solid var(--page-accent);">
+<div class="about-note" style="margin-bottom:12px; border-left:4px solid var(--page-accent);">
   <p><strong>🆕 New to Vivaldi?</strong> Out of the box it shows extra bars (tab bar, navigation bar) that eat up screen space. Hiding them takes about two minutes and makes it feel like a regular mobile browser — follow the short <a href="vivaldi-setup.html">picture guide</a> and you're set.</p>
 </div>
 
-<div class="about-note" style="margin-bottom:36px;">
+<div class="about-note" style="margin-bottom:24px;">
   <p><strong>⚠️ Before you delete anything on Shapes.inc:</strong> always open your downloaded export and check that everything you expected is actually in it. An export can only contain what the platform has loaded in your browser — if a chat wasn't fully scrolled, or a page wasn't captured, that content won't be in the file. <strong>Verify first, delete second.</strong> If something is missing, re-capture and compare again before removing anything — chats, memories, knowledge tabs, or a shape itself.</p>
 </div>
 
