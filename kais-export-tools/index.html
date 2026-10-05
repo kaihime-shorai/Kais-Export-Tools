@@ -66,6 +66,7 @@
     background: var(--bg);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
+    font-synthesis: none;
     line-height: 1.6;
   }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
@@ -259,6 +260,28 @@
   <p class="mobile-note">Want the details first? <a href="help.html" style="color:var(--accent);">Read the full Help &amp; FAQ</a> before installing — no download needed.</p>
 </header>
 
+<!-- TEMPORARY BANNER: remove once the redesigned version clears Chrome review -->
+<style>.warning code{background:var(--surface-alt, rgba(160,113,58,0.12));border:1px solid var(--accent-line, rgba(160,113,58,0.25));border-radius:5px;padding:1px 6px;font-size:.9em;}</style>
+<section class="warning-section" style="padding-top:26px;">
+  <div class="wrap">
+    <div class="warning" style="border-left:4px solid #c44;">
+      <strong>🚨 Exports not working right now? Read this:</strong> Shapes.inc redesigned its pages and the version currently on the Chrome Web Store can't find the new layout — <strong>except the chat exporter, which still works</strong>. A rebuilt version is in Google's review queue and will update automatically once approved.
+      <br><br>
+      <strong>Until then, the current version still works from the platform's legacy addresses.</strong> Go straight to the page you want (swap in your shape's @handle as shown on their page), let it load, then run the matching export as normal:
+      <br><br>
+      <code>shapes.inc/SHAPE-NAME/profile</code> — Profile &amp; Config<br>
+      <code>shapes.inc/SHAPE-NAME/personality</code> — Personality<br>
+      <code>shapes.inc/SHAPE-NAME/engine</code> — AI Engine<br>
+      <code>shapes.inc/SHAPE-NAME/knowledge</code> — Knowledge Base<br>
+      <code>shapes.inc/SHAPE-NAME/training</code> — Training Pairs<br>
+      <code>shapes.inc/SHAPE-NAME/user/memory</code> — Long Term Memories
+      <br><br>
+      Example: <code>shapes.inc/mihairi-2hzgf/user/memory</code>. Full details on the <a href="help.html" style="color:var(--accent);">Help &amp; FAQ page</a>.
+    </div>
+  </div>
+</section>
+<!-- END TEMPORARY BANNER -->
+
 <section class="whatsnew-section">
   <div class="wrap">
     <details class="whatsnew" id="whats-new">
@@ -347,7 +370,9 @@
     <h2>Now on your phone 📱</h2>
     <p class="section-sub">Everything works on Android with <strong>Vivaldi Browser</strong> — install from the same Chrome Web Store page.</p>
     <div class="warning" style="margin-bottom:26px;">
-      <strong>How to get it on mobile:</strong> open this page in <strong>Vivaldi Browser</strong> on your Android phone, tap the install button above, and Vivaldi will add it like a desktop extension. Then open Shapes.inc, tap Vivaldi's menu, find the extension, and its menu opens as a touch-friendly page. <em>Tip:</em> hiding Vivaldi's navigation bar and tab bar makes it feel just like a regular app — <a href="vivaldi-setup.html" style="color:var(--accent);">here's a 2-minute picture guide</a>.
+      <strong>How to get it on mobile:</strong> open this page in <strong>Vivaldi Browser</strong> on your Android phone, tap the install button above, and Vivaldi will add it like a desktop extension. Then open Shapes.inc, tap Vivaldi's menu, find the extension, and its menu opens as a touch-friendly page.
+      <br><br>
+      <strong>🆕 New to Vivaldi?</strong> It ships with extra bars switched on (tab bar, navigation bar) that clutter the screen. Hiding them takes about two minutes and makes it feel like a regular mobile browser — follow the <a href="vivaldi-setup.html" style="color:var(--accent);">step-by-step picture guide</a>.
       <br><br>
       <strong>An honest note:</strong> mobile browsers give extensions far less room to work in than desktop, so the mobile experience is simpler — and it is built specifically for Vivaldi. Lemur Browser can also run it, but Lemur has a bug where the keyboard covers the chat box (they've said they won't fix it) — fine if you only pop in to export, frustrating if you actually chat. Quetta is not recommended. If anything looks off on your phone, please tell me — testing devices is limited, so reports genuinely help.
     </div>
