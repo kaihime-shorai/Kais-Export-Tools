@@ -260,33 +260,40 @@
   <p class="mobile-note">Want the details first? <a href="help.html" style="color:var(--accent);">Read the full Help &amp; FAQ</a> before installing — no download needed.</p>
 </header>
 
-<!-- TEMPORARY BANNER: remove once v1.3.2 (slug fix) clears review -->
+<!-- TEMPORARY BANNER: remove once the redesigned version clears Chrome review -->
+<style>.warning code{background:var(--surface-alt, rgba(160,113,58,0.12));border:1px solid var(--accent-line, rgba(160,113,58,0.25));border-radius:5px;padding:1px 6px;font-size:.9em;}</style>
 <section class="warning-section" style="padding-top:26px;">
   <div class="wrap">
     <div class="warning" style="border-left:4px solid #c44;">
-      <strong>🚨 Known bug in the current version (fix already in review):</strong> the Memory Entries exporter's "open the classic memories page" offer can point at the wrong address — it may show <em>your</em> username instead of the shape's. Everything else in v1.3.1 works fine.
+      <strong>🚨 Exports not working right now? Read this:</strong> Shapes.inc redesigned its pages and the version currently on the Chrome Web Store can't find the new layout — <strong>except the chat exporter, which still works</strong>. A rebuilt version is in Google's review queue and will update automatically once approved.
       <br><br>
-      <strong>The workaround (works perfectly):</strong> go to the classic page yourself — <code>shapes.inc/SHAPE-NAME/user/memory</code>, using the shape's @handle as shown on their page (example: <code>shapes.inc/mihairi-2hzgf/user/memory</code>). Let it load, then run Memory Entries from that tab. It captures like nothing happened.
+      <strong>Until then, the current version still works from the platform's legacy addresses.</strong> Go straight to the page you want (swap in your shape's @handle as shown on their page), let it load, then run the matching export as normal:
       <br><br>
-      The fixed version (v1.3.2) is already in Google's review queue and will update automatically once approved — usually a few days.
+      <code>shapes.inc/SHAPE-NAME/profile</code> — Profile &amp; Config<br>
+      <code>shapes.inc/SHAPE-NAME/personality</code> — Personality<br>
+      <code>shapes.inc/SHAPE-NAME/engine</code> — AI Engine<br>
+      <code>shapes.inc/SHAPE-NAME/knowledge</code> — Knowledge Base<br>
+      <code>shapes.inc/SHAPE-NAME/training</code> — Training Pairs<br>
+      <code>shapes.inc/SHAPE-NAME/user/memory</code> — Long Term Memories
+      <br><br>
+      Example: <code>shapes.inc/mihairi-2hzgf/user/memory</code>. Full details on the <a href="help.html" style="color:var(--accent);">Help &amp; FAQ page</a>.
     </div>
   </div>
 </section>
-<style>.warning code{background:var(--surface-alt, rgba(160,113,58,0.12));border:1px solid var(--accent-line, rgba(160,113,58,0.25));border-radius:5px;padding:1px 6px;font-size:.9em;}</style>
 <!-- END TEMPORARY BANNER -->
 
 <section class="whatsnew-section">
   <div class="wrap">
     <details class="whatsnew" id="whats-new">
-      <summary>✨ What's new in v1.3.1 — keeps up with the Shapes.inc redesign <span class="wn-chevron">▼</span></summary>
+      <summary>✨ What's new in v1.3 — now on Android (via Vivaldi Browser) <span class="wn-chevron">▼</span></summary>
       <div class="wn-body">
         <ul>
-          <li><strong>Works with the new Shapes.inc look:</strong> every exporter was updated for the platform's redesigned pages, so your exports keep working after the overhaul.</li>
-          <li><strong>One-tap knowledge &amp; training exports:</strong> Knowledge Base and Training Pairs now capture every category on the page in a single run — no more tab-by-tab capturing.</li>
-          <li><strong>Clearer buttons:</strong> "Export Shape Settings" works on any of the shape's settings pages (profile, personality, AI engine, memory settings), and "Export Memory Entries" captures the entries themselves — with a "what does each option capture?" guide right in the menu.</li>
-          <li><strong>Memory entries, still reachable:</strong> the redesign hid the memory-entries list, so the extension finds your shape's classic memory page for you and captures from there.</li>
-          <li><strong>Data Viewer "All" tab:</strong> knowledge exports with multiple categories can now be browsed all at once, not just tab by tab.</li>
-          <li><strong>Still everything from v1.3:</strong> Android support via Vivaldi Browser, online Help &amp; FAQ, independent ☀️/🌙 Cozy Cafe toggles, preserved line breaks, and a better find bar.</li>
+          <li><strong>Works on your phone:</strong> built and tested for Vivaldi Browser on Android — the menu opens as a touch-friendly page, export panels size themselves for phone screens, and the reader &amp; viewer pages all adapt. <em>(Lemur Browser can run it too, but Lemur has a keyboard bug that covers the chat box — fine for exports, awkward for chatting.)</em></li>
+          <li><strong>Help &amp; FAQ now lives online:</strong> the Help button opens the always-up-to-date help page, so fixes and new answers reach everyone without waiting for a store update.</li>
+          <li><strong>Your look, your choice:</strong> independent ☀️/🌙 Cozy Cafe light/dark toggles — one for the menu &amp; panels, a separate one on the reading pages.</li>
+          <li><strong>Fixed:</strong> knowledge, memory &amp; training exports now preserve line breaks from the page.</li>
+          <li><strong>Search got better:</strong> matches are highlighted word-by-word, the find bar stays pinned while you jump between results, and one tap clears it.</li>
+          <li><strong>Small quality-of-life bits:</strong> dismissible warnings in the mobile menu, version number in the menu, and a readability pass across panels and both reader pages.</li>
         </ul>
       </div>
     </details>
